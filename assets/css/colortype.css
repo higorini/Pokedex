@@ -1,0 +1,110 @@
+:root {
+  --normal-primary: #9da0aa;
+  --normal-secondary: #c4c2a5;
+  --fire-primary: #fd7d24;
+  --fire-secondary: #fd8686;
+  --grass-primary: #62b957;
+  --grass-secondary: #a2ef79;
+  --water-primary: #4a90da;
+  --water-secondary: #90d2fe;
+  --electric-primary: #eed535;
+  --electric-secondary: #fee165;
+  --ice-primary: #61cec0;
+  --ice-secondary: #cbf2f2;
+  --fighting-primary: #d04164;
+  --fighting-secondary: #e2514a;
+  --poison-primary: #a552cc;
+  --poison-secondary: #de98dc;
+  --ground-primary: #dd7748;
+  --ground-secondary: #f8d986;
+  --flying-primary: #748fc9;
+  --flying-secondary: #c8b6fa;
+  --psychic-primary: #ea5d60;
+  --psychic-secondary: #fd87ab;
+  --bug-primary: #8cb230;
+  --bug-secondary: #d3e748;
+  --rock-primary: #baab82;
+  --rock-secondary: #d3ba46;
+  --ghost-primary: #556aae;
+  --ghost-secondary: #8e71b2;
+  --dragon-primary: #0f6ac0;
+  --dragon-secondary: #8f5efe;
+  --dark-primary: #58575f;
+  --dark-secondary: #91705b;
+  --steel-primary: #417d9a;
+  --steel-secondary: #cbc8e1;
+  --fairy-primary: #ed6ec7;
+  --fairy-secondary: #f1b2d1;
+}
+
+.pokemon .detail .types .type.normal {
+  background-color: #b5b9c4;
+}
+
+.pokemon .detail .types .type.fire {
+  background-color: #ffa756;
+}
+
+.pokemon .detail .types .type.grass {
+  background-color: #a2ef79;
+}
+
+.pokemon .detail .types .type.water {
+  background-color: #90d2fe;
+}
+
+.pokemon .detail .types .type.electric {
+  background-color: #fee165;
+}
+
+.pokemon .detail .types .type.ice {
+  background-color: #91d8df;
+}
+
+.pokemon .detail .types .type.fighting {
+  background-color: #eb4971;
+}
+
+.pokemon .detail .types .type.poison {
+  background-color: #de98dc;
+}
+
+.pokemon .detail .types .type.ground {
+  background-color: #f78551;
+}
+
+.pokemon .detail .types .type.flying {
+  background-color: #c8b6fa;
+}
+
+.pokemon .detail .types .type.psychic {
+  background-color: #fd87ab;
+}
+
+.pokemon .detail .types .type.bug {
+  background-color: #d3e748;
+}
+
+.pokemon .detail .types .type.rock {
+  background-color: #d4c294;
+}
+
+.pokemon .detail .types .type.ghost {
+  background-color: #8571be;
+}
+
+.pokemon .detail .types .type.dragon {
+  background-color: #7383b9;
+}
+
+.pokemon .detail .types .type.dark {
+  background-color: #6f6e78;
+}
+
+.pokemon .detail .types .type.steel {
+  background-color: #4c91b2;
+}
+
+.pokemon .detail .types .type.fairy {
+  background-color: #f1b2d1;
+}
