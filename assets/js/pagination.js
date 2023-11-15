@@ -25,6 +25,7 @@ function criarPaginacao(totalPokemons) {
   
       newButton.addEventListener("click", function () {
         const newOffset = this.dataset.offset;
+        showLoading();
         loadPokemon(newOffset, limit)
       });
   

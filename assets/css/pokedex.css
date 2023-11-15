@@ -6,7 +6,6 @@
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  background-size: 400% 400%;
 }
 
 .pokemon {
@@ -94,16 +93,15 @@
   margin: 0.25rem 0;
   background-color: #6c89db;
   border: none;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 376px) {
   .pokemons {
     width: 24rem;
-    width: 50rem;
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -111,6 +109,7 @@
 @media screen and (min-width: 576px) {
   .pokemons {
     width: 36rem;
+    height: 50rem;
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -118,7 +117,11 @@
 @media screen and (min-width: 992px) {
   .pokemons {
     width: 48rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 48rem;
+  }
+
+  .pokemon {
+    max-height: 140px;
   }
 }
 
