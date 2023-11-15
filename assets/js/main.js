@@ -79,10 +79,10 @@ function loadPokemon(offset, limit) {
   }
 
   pokeApi.getPokemons(offset, limit).then((allPokemons = []) => {
-    const randomTime = Math.random() * (2000 - 500) + 500;
+    const randomTime = Math.random() * (2000 - 1000) + 1000;
     const newHtml = allPokemons.map(convertPokemonToLi).join("");
     pokemonList.innerHTML = newHtml;
-    setTimeout(hideLoading, randomTime)
+    setTimeout(hideLoading, randomTime);
   });
 }
 

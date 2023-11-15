@@ -89,11 +89,10 @@
 }
 
 .pagination button {
-  padding: 0.5rem 1rem;
-  margin: 0.25rem 0;
+  padding: 0.6rem 0.6rem;
   background-color: #6c89db;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;

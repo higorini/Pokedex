@@ -19,8 +19,12 @@ function criarPaginacao(totalPokemons) {
       const pageNumber = i + 1;
       const newButton = document.createElement("button");
       const offset = i * porPagina;
-  
-      newButton.textContent = `${pageNumber}`;
+
+      function formatPageNumber(id) {
+        return String(id).padStart(2, "0");
+      }
+
+      newButton.textContent = formatPageNumber(pageNumber)
       newButton.dataset.offset = offset;
   
       newButton.addEventListener("click", function () {
