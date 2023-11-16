@@ -48,6 +48,14 @@ header {
 }
 
 .infoButton {
+  padding: 0.4rem 0.8rem;
+  background-color: #6c89db;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   margin-right: 20px;
 }
 
