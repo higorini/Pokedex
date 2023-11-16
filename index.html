@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="./assets/css/global.css" />
     <link rel="stylesheet" href="./assets/css/pokedex.css" />
     <link rel="stylesheet" href="./assets/css/colortype.css" />
+    <link rel="stylesheet" href="./assets/css/modal.css" />
   </head>
 
   <body>
@@ -35,6 +36,90 @@
     <section class="content">
       <header>
         <div class="title"><h1>Pokédex</h1></div>
+
+        <button id="infoButton" class="infoButton">ℹ️</button>
+
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="changelog">
+              <h2>Changelog</h2>
+
+              <div class="change-entry">
+                <h3>Last commit: 16/11/23</h3>
+                <ul>
+                  <li><span class="circle"></span> Creating info modal for changelogs</li>
+                  <li>
+                    <span class="circle"></span> Better pagination feedback
+                  </li>
+                  <li>
+                    <span class="circle"></span> Testing background colors
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Pokemon class created to make code easier to read</span
+                    >
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Refactoring scripts</span
+                    >
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Format name and ID dynamically</span
+                    >
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Add type icon dynamically</span
+                    >
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Dynamic color background gradient</span
+                    >
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Background color set by type</span
+                    >
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Color type added dynamically</span
+                    >
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Pokémon being listed from the API</span
+                    >
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Initial API integration</span
+                    >
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Pokemon card CSS finished</span
+                    >
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Pokemon card creation and initial stylization</span
+                    >
+                  </li>
+                  <li>
+                    <span class="circle"></span>
+                      Organizing the project and creating initial folders and files</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </header>
 
       <ol id="pokemonList" class="pokemons">
@@ -45,6 +130,7 @@
     </section>
 
     <!-- Script -->
+    <script src="./assets/js/modal.js"></script>
     <script src="./assets/js/pagination.js"></script>
     <script src="./assets/js/pokemon-model.js"></script>
     <script src="./assets/js/poke-api.js"></script>

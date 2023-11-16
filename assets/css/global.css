@@ -32,13 +32,23 @@ body {
   height: 100vh;
   padding: 1rem;
   margin: 0;
-  background-color: #fff;
+  background-color: #9edbad;
 }
 
 header {
   display: flex;
-  justify-content: center;
-  align-items: cen;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  padding-left: 40px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.infoButton {
+  margin-right: 20px; /* Ajuste a margem conforme necessário */
 }
 
 @media screen and (min-width: 992px) {
