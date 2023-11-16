@@ -1,12 +1,33 @@
 const pokeApi = {};
 
-function convertPokeApiToModel(pokeDetail) {
+async function convertPokeApiToModel(pokeDetail) {
   const pokemon = new Pokemon();
 
   pokemon.id = pokeDetail.id;
   pokemon.name = pokeDetail.name;
   pokemon.types = pokeDetail.types.map((typeSlot) => typeSlot.type.name);
   pokemon.image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
+  res = await fetch(pokeDetail["species"]["url"]);
+  pokemon.description = await res.json();
+  pokemon.description =
+    pokemon.description["flavor_text_entries"][9]["flavor_text"];
+  pokemon.height = pokeDetail.height;
+  pokemon.weight = pokeDetail.weight;
+  pokemon.hp = pokeDetail["stats"][0]["base_stat"];
+  pokemon.attack = pokeDetail["stats"][1]["base_stat"];
+  pokemon.defense = pokeDetail["stats"][2]["base_stat"];
+  pokemon.spAttack = pokeDetail["stats"][3]["base_stat"];
+  pokemon.spDefense = pokeDetail["stats"][4]["base_stat"];
+  pokemon.speed = pokeDetail["stats"][5]["base_stat"];
+  pokemon.total =
+    pokemon.hp +
+    pokemon.attack +
+    pokemon.defense +
+    pokemon.spAttack +
+    pokemon.spDefense +
+    pokemon.speed;
+
+  console.log(pokemon);
 
   return pokemon;
 }
@@ -27,4 +48,15 @@ pokeApi.getPokemons = (offset, limit) => {
     .then((detailRequests) => Promise.all(detailRequests))
     .then((uniquePokemons) => uniquePokemons)
     .catch((error) => console.error(error));
+};
+
+pokeApi.getPokemon = (id) => {
+  console.log(id);
+  const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
+
+  return fetch(url)
+    .then((response) => response.json())
+    .then((pokemonData) => convertPokeApiToModel(pokemonData))
+    .then((uniquePokemon) => uniquePokemon)
+    .catch((error) => console.error("Error:", error));
 };

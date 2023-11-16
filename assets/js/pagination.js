@@ -1,4 +1,3 @@
-const pagination = document.getElementById("pagination");
 const totalPokemons = 151;
 const limit = 15;
 let offset = 0;
@@ -6,12 +5,10 @@ const currentPage = 1;
 
 function calcularNumeroDePaginas(limit, totalPokemons) {
   const quantidadeDePokemons = Math.ceil(totalPokemons / limit);
-  console.log(quantidadeDePokemons);
   return quantidadeDePokemons;
 }
 
 function criarPaginacao(totalPokemons) {
-  const pagination = document.getElementById("pagination");
   const porPagina = 15;
   const numeroDePaginas = calcularNumeroDePaginas(limit, totalPokemons);
 

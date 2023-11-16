@@ -27,15 +27,20 @@
     <link rel="stylesheet" href="./assets/css/pokedex.css" />
     <link rel="stylesheet" href="./assets/css/colortype.css" />
     <link rel="stylesheet" href="./assets/css/modal.css" />
+    <link rel="stylesheet" href="./assets/css/pokemon.css" />
   </head>
 
   <body>
     <div class="loading" id="loading">
       <img src="./assets/images/snorlax.gif" alt="Loading" />
     </div>
-    <section class="content">
+
+    <div id="detailsSection" class="detailsSection" style="display: none;">
+    </div>
+
+    <section class="content" id="content">
       <header>
-        <div class="title"><h1>Pokédex</h1></div>
+        <div class="title" id="title"><h1>Pokédex</h1></div>
 
         <button id="infoButton" class="infoButton">ℹ️</button>
 
@@ -48,6 +53,8 @@
               <div class="change-entry">
                 <h3>Last commit: 16/11/23</h3>
                 <ul>
+                  <li><span class="circle"></span> Initial stylization</li>
+                  <li><span class="circle"></span> Pokemon detail started</li>
                   <li><span class="circle"></span> Stylized info button</li>
                   <li><span class="circle"></span> Fixing types images</li>
                   <li><span class="circle"></span> Creating info modal for changelogs</li>
@@ -137,5 +144,6 @@
     <script src="./assets/js/pokemon-model.js"></script>
     <script src="./assets/js/poke-api.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/pokemon.js"></script>
   </body>
 </html>

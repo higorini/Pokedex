@@ -1,4 +1,3 @@
-const infoButton = document.getElementById("infoButton");
 const modal = document.getElementById("modal");
 const closeButton = document.querySelector(".close");
 

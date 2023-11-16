@@ -1,4 +1,7 @@
 const loading = document.getElementById("loading");
+const content = document.getElementById("content");
+const title = document.getElementById("title");
+const infoButton = document.getElementById("infoButton");
 const pokemonList = document.getElementById("pokemonList");
 const loadMoreButton = document.getElementById("loadMoreButton");
 
@@ -8,6 +11,22 @@ function showLoading() {
 
 function hideLoading() {
   loading.style.display = "none";
+}
+
+function showPokedex() {
+  infoButton.style.display = "";
+  title.style.display = "";
+  pagination.style.display = "";
+  pokemonList.style.display = "";
+  content.style.display = "";
+}
+
+function hidePokedex() {
+  infoButton.style.display = "none";
+  title.style.display = "none";
+  pagination.style.display = "none";
+  pokemonList.style.display = "none";
+  content.style.display = "none";
 }
 
 showLoading();
@@ -30,7 +49,7 @@ function loadPokemon(offset, limit) {
   }
 
   function formatPokemonId(id) {
-    return String(id).padStart(4, "0");
+    return String(id).padStart(3, "0");
   }
 
   function convertPokemonToLi(pokemon) {
@@ -47,9 +66,9 @@ function loadPokemon(offset, limit) {
     const backgroundStyle = applyPokemonColors(type);
 
     return `
-    <li id="${
+    <li id="${pokemon.id}" class="pokemon ${typeColor}" onclick="showDetails(${
       pokemon.id
-    }" class="pokemon ${typeColor}" style="background: ${backgroundStyle}">
+    })" style="background: ${backgroundStyle}">
       <span class="number">#${formattedId}</span>
       <span class="name">${capitalizedFirstLetter}</span>
   
