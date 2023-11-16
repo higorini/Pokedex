@@ -56,13 +56,13 @@ function loadPokemon(offset, limit) {
       <div class="detail">
         <ol class="types">
           <li class="type ${type[0]}">
-            <img src="../assets/images/types/${type[0]}.svg" />
+            <img src="./assets/images/types/${type[0]}.svg" />
             ${capitalizedFirstType}
           </li>
           ${
             type.length > 1
               ? `<li class="type ${type[1]}">
-                <img src="../assets/images/types/${type[1]}.svg" />
+                <img src="./assets/images/types/${type[1]}.svg" />
                 ${capitalizedSecondType}
               </li>`
               : ""
