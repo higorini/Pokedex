@@ -17,9 +17,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 80%;
+  max-width: 90%;
   max-height: 50%;
-  overflow: auto;
+  overflow: scroll;
 }
 
 .close {
@@ -44,8 +44,8 @@
   border: 1px solid #ccc;
   padding: 1.5rem;
   border-radius: 5px;
-  min-width: 440px;
-  max-width: 460px;
+  min-width: 280px;
+  max-width: 300px;
   margin: 0 auto;
 }
 

@@ -11,10 +11,10 @@ function convertPokemonDetail(pokemon) {
 
     if (types[1]) {
       root.style.setProperty("--secondary-color", `var(${secondaryColor})`);
-      return `linear-gradient(to bottom right, var(${primaryColor}), var(${secondaryColor}))`;
+      return `linear-gradient(to right, var(${primaryColor}), var(${secondaryColor}))`;
     } else {
       root.style.removeProperty("--secondary-color");
-      return `linear-gradient(to bottom right, var(${primaryColor}), var(--${types[0]}-secondary)`;
+      return `linear-gradient(to right, var(${primaryColor}), var(--${types[0]}-secondary)`;
     }
   }
 
@@ -36,46 +36,62 @@ function convertPokemonDetail(pokemon) {
   detailsSection.style.background = backgroundStyle;
 
   return `
-    <div class="details-header ${typeColor}">
-      <div class="info-header">
-        <img src="${pokemon.image}" alt="${pokemon.name}">
-        <div class="detail-types">
-        <spam class="pokemon-id">#${formattedId}</spam>
-        <h1>${capitalizedFirstLetter}</h1>
-          <ol class="types">
-            <li class="type ${type[0]}">
-              <img src="./assets/images/types/${type[0]}.svg" />
-              ${capitalizedFirstType}
-          </li>
-          ${
-            type.length > 1
-              ? `<li class="type ${type[1]}">
-                  <img src="./assets/images/types/${type[1]}.svg" />
-                  ${capitalizedSecondType}
-                </li>`
-              : ""
-          }
-            </ol>
+  <button class="back-icon" id="back-icon"><img src="./assets/images/icons/back.svg" src="back-button" /></button>
+    <div class="pokemon-details">
+      <div class="details-header ${typeColor}">
+        <div class="info-header">
+          <img src="${pokemon.image}" alt="${pokemon.name}">
+          <div class="detail-types">
+          <spam class="pokemon-id">#${formattedId}</spam>
+          <h1>${capitalizedFirstLetter}</h1>
+            <ol class="types">
+              <li class="type ${type[0]}">
+                <img src="./assets/images/types/${type[0]}.svg" />
+                ${capitalizedFirstType}
+            </li>
+            ${
+              type.length > 1
+                ? `<li class="type ${type[1]}">
+                    <img src="./assets/images/types/${type[1]}.svg" />
+                    ${capitalizedSecondType}
+                  </li>`
+                : ""
+            }
+              </ol>
+          </div>
         </div>
       </div>
+
+      <div class="details-about">
+        <p>${pokemon.description.replace(/\n/g, " ")}</p>
+
+        <h2>Pokédex Data</h2>
+      </div>
     </div>
-
-<div class="details-about">
-  <p></p>
-
-  <h2>Pokédex Data</h2>
-</div>
   `;
 }
 
 function showDetails(id) {
   pokeApi.getPokemon(id).then((data) => {
+    const randomTime = Math.random() * (2000 - 1000) + 1000;
     showLoading();
     hidePokedex();
     detailsSection.style.display = "block";
     pokemonList.innerHTML = "";
     pagination.innerHTML = "";
     detailsSection.innerHTML = convertPokemonDetail(data);
-    hideLoading();
+    setTimeout(hideLoading, randomTime);
+    const backIcon = document.getElementById("back-icon");
+    
+    backIcon.addEventListener("click", function () {
+      const randomTime = Math.random() * (2000 - 1000) + 1000;
+      showLoading();
+      detailsSection.style.display = "none";
+      detailsSection.innerHTML = "";
+      showPokedex();
+      loadPokemon(offset, limit);
+      criarPaginacao(totalPokemons);
+      setTimeout(hideLoading, randomTime);
+    });
   });
 }

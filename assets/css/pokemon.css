@@ -1,6 +1,18 @@
 .detailsSection {
-  max-width: 100vw;
+  position: relative;
+  width: 100vw;
   height: 100vh;
+}
+
+.detailsSection .back-icon {
+  position: absolute;
+  top: 20px;
+  right: 340px;
+}
+
+.pokemon-details {
+  width: 23.438rem;
+  height: 100%;
 }
 
 .details-header .info-header {
@@ -8,6 +20,7 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding: 50px 0;
 }
 
 .details-header .info-header img {
@@ -62,8 +75,16 @@
 .details-about {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 1rem 1.5rem;
   height: 100%;
   background: #fff;
   border-radius: 30px 30px 0 0;
+}
+
+.details-about p {
+  text-align: justify;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
 }

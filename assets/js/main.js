@@ -4,6 +4,16 @@ const title = document.getElementById("title");
 const infoButton = document.getElementById("infoButton");
 const pokemonList = document.getElementById("pokemonList");
 const loadMoreButton = document.getElementById("loadMoreButton");
+let savedPosition = 0;
+
+function savePosition() {
+  savedPosition = window.scrollY;
+  window.scrollTo(0, 0);
+}
+
+function loadPosition(position) {
+  window.scrollTo(0, position);
+}
 
 function showLoading() {
   loading.style.display = "block";
@@ -19,6 +29,7 @@ function showPokedex() {
   pagination.style.display = "";
   pokemonList.style.display = "";
   content.style.display = "";
+  loadPosition(savedPosition);
 }
 
 function hidePokedex() {
@@ -27,8 +38,10 @@ function hidePokedex() {
   pagination.style.display = "none";
   pokemonList.style.display = "none";
   content.style.display = "none";
+  savePosition();
 }
 
+hidePokedex();
 showLoading();
 
 function loadPokemon(offset, limit) {
@@ -102,6 +115,7 @@ function loadPokemon(offset, limit) {
     const newHtml = allPokemons.map(convertPokemonToLi).join("");
     pokemonList.innerHTML = newHtml;
     setTimeout(hideLoading, randomTime);
+    showPokedex();
   });
 }
 

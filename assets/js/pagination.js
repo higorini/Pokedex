@@ -1,7 +1,13 @@
 const totalPokemons = 151;
 const limit = 15;
 let offset = 0;
-const currentPage = 1;
+let currentPage = 1;
+
+function clearSessionStorage() {
+  sessionStorage.clear();
+}
+
+clearSessionStorage();
 
 function calcularNumeroDePaginas(limit, totalPokemons) {
   const quantidadeDePokemons = Math.ceil(totalPokemons / limit);
@@ -11,11 +17,12 @@ function calcularNumeroDePaginas(limit, totalPokemons) {
 function criarPaginacao(totalPokemons) {
   const porPagina = 15;
   const numeroDePaginas = calcularNumeroDePaginas(limit, totalPokemons);
+  const currentPageStorage = sessionStorage.getItem("currentPage");
 
   for (let i = 0; i < numeroDePaginas; i++) {
     const pageNumber = i + 1;
     const newButton = document.createElement("button");
-    const offset = i * porPagina;
+    const newOffset = i * porPagina;
 
     function formatPageNumber(id) {
       return String(id).padStart(2, "0");
@@ -26,18 +33,30 @@ function criarPaginacao(totalPokemons) {
     }
 
     newButton.textContent = formatPageNumber(pageNumber);
-    newButton.dataset.offset = offset;
+    newButton.dataset.offset = newOffset;
 
     newButton.addEventListener("click", function () {
-      const newOffset = this.dataset.offset;
+      const offset = this.dataset.offset;
       showLoading();
-      loadPokemon(newOffset, limit);
+      loadPokemon(offset, limit);
       const buttons = pagination.querySelectorAll("button");
       buttons.forEach((button) => button.classList.remove("active"));
       this.classList.add("active");
+
+      sessionStorage.setItem("currentPage", pageNumber);
     });
 
     pagination.appendChild(newButton);
+  }
+
+  if (currentPageStorage) {
+    const buttons = pagination.querySelectorAll("button");
+    buttons.forEach((button) => button.classList.remove("active"));
+    const currentPageButton = pagination.querySelector(
+      `button[data-offset="${(currentPageStorage - 1) * porPagina}"]`
+    );
+    currentPageButton.classList.add("active");
+    loadPokemon((currentPageStorage - 1) * porPagina, limit);
   }
 }
 

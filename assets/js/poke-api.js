@@ -10,7 +10,7 @@ async function convertPokeApiToModel(pokeDetail) {
   res = await fetch(pokeDetail["species"]["url"]);
   pokemon.description = await res.json();
   pokemon.description =
-    pokemon.description["flavor_text_entries"][9]["flavor_text"];
+    pokemon.description["flavor_text_entries"][52]["flavor_text"];
   pokemon.height = pokeDetail.height;
   pokemon.weight = pokeDetail.weight;
   pokemon.hp = pokeDetail["stats"][0]["base_stat"];
@@ -26,8 +26,6 @@ async function convertPokeApiToModel(pokeDetail) {
     pokemon.spAttack +
     pokemon.spDefense +
     pokemon.speed;
-
-  console.log(pokemon);
 
   return pokemon;
 }
