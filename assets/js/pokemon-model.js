@@ -14,4 +14,5 @@ class Pokemon {
   spDefense;
   speed;
   total;
+  species;
 }

@@ -9,8 +9,10 @@ async function convertPokeApiToModel(pokeDetail) {
   pokemon.image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
   res = await fetch(pokeDetail["species"]["url"]);
   pokemon.description = await res.json();
+  console.log(pokemon.description);
   pokemon.description =
-    pokemon.description["flavor_text_entries"][52]["flavor_text"];
+    pokemon.description["flavor_text_entries"][6]["flavor_text"];
+  console.log(pokemon.description);
   pokemon.height = pokeDetail.height;
   pokemon.weight = pokeDetail.weight;
   pokemon.hp = pokeDetail["stats"][0]["base_stat"];
@@ -26,6 +28,12 @@ async function convertPokeApiToModel(pokeDetail) {
     pokemon.spAttack +
     pokemon.spDefense +
     pokemon.speed;
+  res = await fetch(pokeDetail["species"]["url"]);
+  pokemon.species = await res.json();
+  pokemon.species = pokemon.species["genera"][7]["genus"];
+  pokemon.abilities = pokeDetail.abilities.map(
+    (abilitySlot) => abilitySlot.ability.name
+  );
 
   return pokemon;
 }

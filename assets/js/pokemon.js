@@ -22,6 +22,14 @@ function convertPokemonDetail(pokemon) {
     return String(id).padStart(3, "0");
   }
 
+  function cmToMeters(cm) {
+    return (cm / 100).toFixed(2) + "m";
+  }
+
+  function grToKgs(gr) {
+    return (gr / 10).toFixed(1) + "kg";
+  }
+
   const type = pokemon.types;
   const formattedId = formatPokemonId(pokemon.id);
   const capitalizedFirstLetter =
@@ -31,6 +39,12 @@ function convertPokemonDetail(pokemon) {
   const capitalizedSecondType = type[1]
     ? type[1].charAt(0).toUpperCase() + type[1].slice(1)
     : "";
+  const capitalizedFirstAbility =
+    pokemon.abilities[0].charAt(0).toUpperCase() +
+    pokemon.abilities[0].slice(1);
+  const capitalizedSecondAbility =
+    pokemon.abilities[1].charAt(0).toUpperCase() +
+    pokemon.abilities[1].slice(1);
   const typeColor = type[1] ? type.join(" ") : type[0];
   const backgroundStyle = applyPokemonColors(type);
   detailsSection.style.background = backgroundStyle;
@@ -63,9 +77,30 @@ function convertPokemonDetail(pokemon) {
       </div>
 
       <div class="details-about">
-        <p>${pokemon.description.replace(/\n/g, " ")}</p>
+        <p>${pokemon.description.replace(//g, " ")}</p>
 
-        <h2>Pokédex Data</h2>
+        <h2 class="pokedex-data" style="color: var(--${
+          type[0]
+        }-primary)">Pokédex Data</h2>
+
+        <div class="pokedex-details">
+            <div class="pokedex-detail">
+              <p class="pokedex-detail-name">Species</p>
+              <p class="pokedex-detail-info">${pokemon.species}</p>
+            </div>
+            <div class="pokedex-detail">
+              <p class="pokedex-detail-name">Height</p>
+              <p class="pokedex-detail-info">${cmToMeters(pokemon.height)}</p>
+            </div>
+            <div class="pokedex-detail">
+              <p class="pokedex-detail-name">Weight</p>
+              <p class="pokedex-detail-info">${grToKgs(pokemon.weight)}</p>
+            </div>
+            <div class="pokedex-detail">
+              <p class="pokedex-detail-name">Abilities</p>
+              <p class="pokedex-detail-info">${capitalizedFirstAbility}<br>${capitalizedSecondAbility}</p>
+            </div>
+        </div>
       </div>
     </div>
   `;
@@ -82,7 +117,7 @@ function showDetails(id) {
     detailsSection.innerHTML = convertPokemonDetail(data);
     setTimeout(hideLoading, randomTime);
     const backIcon = document.getElementById("back-icon");
-    
+
     backIcon.addEventListener("click", function () {
       const randomTime = Math.random() * (2000 - 1000) + 1000;
       showLoading();
