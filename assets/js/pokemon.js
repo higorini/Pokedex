@@ -31,6 +31,7 @@ function convertPokemonDetail(pokemon) {
   }
 
   const type = pokemon.types;
+  const abilities = pokemon.abilities;
   const formattedId = formatPokemonId(pokemon.id);
   const capitalizedFirstLetter =
     pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
@@ -40,11 +41,10 @@ function convertPokemonDetail(pokemon) {
     ? type[1].charAt(0).toUpperCase() + type[1].slice(1)
     : "";
   const capitalizedFirstAbility =
-    pokemon.abilities[0].charAt(0).toUpperCase() +
-    pokemon.abilities[0].slice(1);
-  const capitalizedSecondAbility =
-    pokemon.abilities[1].charAt(0).toUpperCase() +
-    pokemon.abilities[1].slice(1);
+    abilities[0].charAt(0).toUpperCase() + abilities[0].slice(1);
+  const capitalizedSecondAbility = abilities[1]
+    ? abilities[1].charAt(0).toUpperCase() + abilities[1].slice(1)
+    : " ";
   const typeColor = type[1] ? type.join(" ") : type[0];
   const backgroundStyle = applyPokemonColors(type);
   detailsSection.style.background = backgroundStyle;

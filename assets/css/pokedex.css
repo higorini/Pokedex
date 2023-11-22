@@ -8,6 +8,10 @@
   margin: 0 auto;
 }
 
+.just-one {
+  height: 27.5rem;
+}
+
 .pokemon {
   display: flex;
   flex-direction: column;
@@ -102,41 +106,4 @@
 
 .pagination button.active {
   background-color: #394b7a;
-}
-
-@media screen and (min-width: 376px) {
-  .pokemons {
-    width: 24rem;
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media screen and (min-width: 576px) {
-  .pokemons {
-    width: 36rem;
-    height: 50rem;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .pokemons {
-    width: 48rem;
-    height: 48rem;
-  }
-
-  .pokemon {
-    max-height: 140px;
-  }
-}
-
-@keyframes scale {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-  100% {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
 }

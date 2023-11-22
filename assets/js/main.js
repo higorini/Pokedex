@@ -67,8 +67,12 @@ function loadPokemon(offset, limit) {
 
   function convertPokemonToLi(pokemon) {
     if (pokemon.id > totalPokemons) {
+      pokemonList.classList.add("just-one");
       return;
+    } else if (pokemonList.classList.contains("just-one")) {
+      pokemonList.classList.remove("just-one");
     }
+
     const type = pokemon.types;
     const formattedId = formatPokemonId(pokemon.id);
     const capitalizedFirstLetter =
