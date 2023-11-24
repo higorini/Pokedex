@@ -101,6 +101,37 @@ function convertPokemonDetail(pokemon) {
               <p class="pokedex-detail-info">${capitalizedFirstAbility}<br>${capitalizedSecondAbility}</p>
             </div>
         </div>
+
+        <h2 class="pokedex-data" style="color: var(--${
+          type[0]
+        }-primary)">Pokédex Attributes</h2>
+
+        <div class="pokedex-details">
+            <div class="pokedex-detail">
+              <p class="pokedex-detail-name">Attack</p>
+              <p class="pokedex-detail-info">${pokemon.attack}</p>
+            </div>
+            <div class="pokedex-detail">
+              <p class="pokedex-detail-name">Defense</p>
+              <p class="pokedex-detail-info">${pokemon.defense}</p>
+            </div>
+            <div class="pokedex-detail">
+              <p class="pokedex-detail-name">Sp. Attack</p>
+              <p class="pokedex-detail-info">${pokemon.spAttack}</p>
+            </div>
+            <div class="pokedex-detail">
+              <p class="pokedex-detail-name">Sp. Defense</p>
+              <p class="pokedex-detail-info">${pokemon.spDefense}</p>
+            </div>
+            <div class="pokedex-detail">
+              <p class="pokedex-detail-name">Speed</p>
+              <p class="pokedex-detail-info">${pokemon.speed}</p>
+            </div>
+            <div class="pokedex-detail">
+              <p class="pokedex-detail-name">Total</p>
+              <p class="pokedex-detail-info">${pokemon.total}</p>
+            </div>
+        </div>
       </div>
     </div>
   `;
